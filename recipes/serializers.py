@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Recipe
+from recipes.models import Recipe
 
 
 class RecipeSerializer(serializers.ModelSerializer):
@@ -28,10 +28,11 @@ class RecipeSerializer(serializers.ModelSerializer):
         return request.user == obj.owner
 
     class Meta:
-        model = Profile
+        model = Recipe
         fields = [
             'id', 'owner', 'created_at', 'updated_at',
             'title', 'prep_time', 'image', 'is_owner', 'number_of_portions',
-            'ingredients', 'steps'
+            'ingredients', 'steps', 'profile_id',
+            'profile_image'
             ]
 
