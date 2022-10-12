@@ -35,4 +35,3 @@ class RecipeSerializer(serializers.ModelSerializer):
             'ingredients', 'steps', 'profile_id',
             'profile_image'
             ]
-
