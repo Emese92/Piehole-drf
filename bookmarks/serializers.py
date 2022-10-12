@@ -1,6 +1,6 @@
 from django.db import IntegrityError
 from rest_framework import serializers
-from .models import Bookmark
+from .models import Bookmark, Recipe
 
 
 class BookmarkSerializer(serializers.ModelSerializer):
@@ -20,4 +20,4 @@ class BookmarkSerializer(serializers.ModelSerializer):
 
 
 class BookmarkDetailSerializer(BookmarkSerializer):
-    bookmarked = serializers.ReadOnlyField(source='recipe.id')
+    recipe = serializers.ReadOnlyField(source='recipe.id')
