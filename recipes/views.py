@@ -6,6 +6,8 @@ from .models import Recipe
 from .serializers import RecipeSerializer
 from piehole_drf.permissions import IsOwnerOrReadOnly
 
+# This view was created based on the example project of Code Institute
+
 
 class RecipeList(APIView):
     serializer_class = RecipeSerializer

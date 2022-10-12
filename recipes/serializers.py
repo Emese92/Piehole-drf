@@ -1,5 +1,7 @@
 from rest_framework import serializers
-from recipes.models import Recipe
+from .models import Recipe
+
+# This Serializer was created based on the example project of Code Institute
 
 
 class RecipeSerializer(serializers.ModelSerializer):
