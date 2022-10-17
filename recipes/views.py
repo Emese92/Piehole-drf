@@ -1,4 +1,5 @@
-from rest_framework import generics, permissions
+from django.db.models import Count
+from rest_framework import generics, permissions, filters
 from .models import Recipe
 from .serializers import RecipeSerializer
 from piehole_drf.permissions import IsOwnerOrReadOnly
@@ -11,7 +12,16 @@ class RecipeList(generics.ListCreateAPIView):
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly
     ]
-    queryset = Recipe.objects.all()
+    queryset = Recipe.objects.annotate(
+        likes_count=Count('likes', distinct=True),
+        comments_count=Count('comment', distinct=True)
+    ).order_by('-created_at')
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = [
+        'likes_count',
+        'comments_count',
+        'likes__created_at'
+    ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -20,4 +30,7 @@ class RecipeList(generics.ListCreateAPIView):
 class RecipeDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = RecipeSerializer
     permission_classes = [IsOwnerOrReadOnly]
-    queryset = Recipe.objects.all()
+    queryset = Recipe.objects.annotate(
+        likes_count=Count('likes', distinct=True),
+        comments_count=Count('comment', distinct=True)
+    ).order_by('-created_at')
