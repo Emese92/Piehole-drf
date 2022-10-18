@@ -4,7 +4,6 @@ Backend for the recipe sharing platform Piehole.
 
 Deployed link can be found [here](https://piehole-drf-api.herokuapp.com/).
 
-# User Experience (UX)
 
 ## Features
 
