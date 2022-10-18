@@ -1,23 +1,39 @@
 # Piehole 
+
 Backend for the recipe sharing platform Piehole.
+
+Deployed link can be found [here](https://piehole-drf-api.herokuapp.com/).
 
 # User Experience (UX)
 
-
-## Website Goals
-
 ## Features
 
+* Authentication
+    - User can create account
+    - Login/ Logout
+* Recipes
+    - User can list all recipes
+    - User can view, create, edit or delete their own recipes
+    - Recipes can be liked, commented on or bookmarked
+* Likes
+    - Logged in user can like/unlike posts
+* Comments
+    - Logged in user can view, create, edit or delete their own comments
+* Bookmark 
+    - Logged in user can bookmark a post
+* Search
+    - Users can search posts by author, title or ingredients
 
-
+## Entity Relationship Diagram
+![Entity Relationship Diagram](images/relationships.png)
 
 
 ## Technologies
- ### Languages
-   - Django 3.2.16
+ ### Languages, Frameworks
+   - Python
+   - Django Rest Framework
 
   ### Libraries, Websites & Programs Used
-  * [Django Rest Framework](https://www.django-rest-framework.org/)
   * [Gitpod](https://gitpod.io/projects)
   * Paint
   * [Cloudinary](https://cloudinary.com/)
@@ -27,19 +43,36 @@ Backend for the recipe sharing platform Piehole.
   * [Gunicorn](https://gunicorn.org/)
   * [JWT](https://jwt.io/)
   * [Pillow](https://pypi.org/project/Pillow/)
-
+  
+ ###
 ## Testing
 ### API Test Case
+#### RecipeList view:
+ - Tested if a user can list all the recipes
+ - Tested if logged in user can create a recipe
+ - Tested if logged out user can not create a recipe
+
+ #### RecipeDetail view:
+
+ - Tested if a user can retrieve a post with a valid id
+ - Tested if a user can not retrieve a post with an invalid id
+ - Tested if users can update the recipes they own
+ - Tested if users can not update the recipes they don't own
 
 
-### Database tests:
+### Manual testings:
+
+- Authentication
+- url paths
+- CRUD when logged in and logged out
+- Like when logged in and logged out
+- Comment when logged in and logged out
+- Bookmark when logged in and logged out
 
 
-### PEP8 Tests
+### PEP8
 
-
-### Bugs
-
+I only got warnings about too long lines in Settings.py and env.py
 
 
 ## Deployment
@@ -48,10 +81,10 @@ Backend for the recipe sharing platform Piehole.
 2. Create new app (add unique name and choose closest region)
 3. Add resources (Heroku postgres)
 4. Go to settings and Reveal Config Vars:
-* CLOUDINARY_URL,
-* DATABASE_URL,
-* SECRET_KEY
-* DISABLE_COLLECTSTATIC
+    * CLOUDINARY_URL,
+    * DATABASE_URL,
+    * SECRET_KEY
+    * DISABLE_COLLECTSTATIC
 5. In Deploy tab connect to Github and add your repository
 6. Go to Manual Deployment choose main branch and press Deploy
 
@@ -66,3 +99,5 @@ Backend for the recipe sharing platform Piehole.
 
 ## Credits
 
+- Code Institute's Moments walkthrough project
+- http://opentechschool.github.io/django-101/en/first_steps/app.html
