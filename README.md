@@ -4,7 +4,6 @@ Backend for the recipe sharing platform Piehole.
 
 Deployed link can be found [here](https://piehole-drf-api.herokuapp.com/).
 
-
 ## Features
 
 * Authentication
@@ -43,9 +42,10 @@ Deployed link can be found [here](https://piehole-drf-api.herokuapp.com/).
   * [JWT](https://jwt.io/)
   * [Pillow](https://pypi.org/project/Pillow/)
   
- ###
+
 ## Testing
 ### API Test Case
+ Tests go through without problems
 #### RecipeList view:
  - Tested if a user can list all the recipes
  - Tested if logged in user can create a recipe
@@ -60,19 +60,23 @@ Deployed link can be found [here](https://piehole-drf-api.herokuapp.com/).
 
 
 ### Manual testings:
+Everything works fine
 
 - Authentication
-- url paths
-- CRUD when logged in and logged out
+- Url paths
+- CRUD recipes when logged in and logged out
 - Like when logged in and logged out
 - Comment when logged in and logged out
 - Bookmark when logged in and logged out
-
+- Error messages for not existing pages
 
 ### PEP8
 
 I only got warnings about too long lines in Settings.py and env.py
 
+### Bugs
+
+There is no known bugs
 
 ## Deployment
 ### Heroku
