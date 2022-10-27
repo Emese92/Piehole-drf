@@ -49,4 +49,4 @@ class RecipeDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Recipe.objects.annotate(
         likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True)
-    ).order_by('-created_at')
+    ).order_by('-created_at', 'likes_count')
